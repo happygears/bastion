@@ -18,12 +18,12 @@ github_repo: cloudposse/bastion
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/bastion.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/bastion"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/bastion.svg"
     url: "https://github.com/cloudposse/bastion/releases/latest"
+  - name: "Build & Test Status"
+    image: "https://github.com/cloudposse/bastion/actions/workflows/integration-tests.yml/badge.svg"
+    url: "https://github.com/cloudposse/bastion/actions/workflows/integration-tests.yml"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
@@ -61,7 +61,7 @@ quickstart: |-
   ```bash
   $ docker run -it -p 1234:22 \
        -e MFA_PROVIDER=google-authenticator \
-       -v ~/.ssh/authorized_keys:/root/.ssh/authorized_keys
+       -v ~/.ssh/authorized_keys:/root/.ssh/authorized_keys \
        cloudposse/bastion
   ```
 
@@ -91,6 +91,13 @@ usage: |-
   $ make docker:build
   ```
 
+  ### Testing
+
+  Run basic connection tests
+
+  ```bash
+  $ make test
+  ```
 
   ### Configuration
 
@@ -174,7 +181,7 @@ usage: |-
 
   #### User Accounts & SSH Keys
 
-  The `bastion` does not attempt to manage user accounts. We suggest using [GitHub Authorized Keys](https://github.com/cloudposse/github-authorized-keys) to provision user accounts and SSH keys. We provide a [chart](https://github.com/cloudposse/charts/incubator/bastion.git) of how we recommend doing it.
+  The `bastion` does not attempt to manage user accounts. We suggest using [GitHub Authorized Keys](https://github.com/cloudposse/github-authorized-keys) to provision user accounts and SSH keys. We provide a [chart](https://github.com/cloudposse/charts/tree/master/incubator/bastion) of how we recommend doing it.
 
   ### Extending
 
